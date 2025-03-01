@@ -7,6 +7,9 @@ import ProductAddPage from "./admin/Products/ProductAddPage.jsx";
 import CategoryPage from "./admin/Categories/CategoryPage.jsx";
 import CategoryAddPage from "./admin/Categories/CategoryAddPage.jsx";
 import CategoryEditPage from "./admin/Categories/CategoryEditPage.jsx";
+import WebsiteLayout from "./website/Layouts/WebsiteLayout.jsx";
+import HomePage from "./website/Home/HomePage.jsx";
+import DetailPage from "./website/Detail/DetailPage.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +24,14 @@ export const router = createBrowserRouter([
       { path: "categories", element: <CategoryPage /> },
       { path: "categories/add", element: <CategoryAddPage /> },
       { path: "categories/edit/:id", element: <CategoryEditPage /> },
+    ],
+  },
+  {
+    path: "/",
+    element: <WebsiteLayout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "detail", element: <DetailPage /> },
     ],
   },
 ]);

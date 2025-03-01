@@ -161,7 +161,15 @@ const ProductListPage = () => {
               Xóa
             </Button>
           </Popconfirm>
-          <Button type="primary">Cập nhật</Button>
+          <Button
+            type="primary"
+            onClick={() => {
+              setCurrentProduct(item);
+              setIsDrawerVisible(true);
+            }}
+          >
+            Cập nhật
+          </Button>
         </Space>
       ),
     },
@@ -246,7 +254,7 @@ const ProductListPage = () => {
       >
         <div style={{ height: "100%", overflowY: "auto", padding: "20px" }}>
           {currentProduct ? (
-            <ProductEditPage product={currentProduct} />
+            <ProductEditPage product={currentProduct} categories={categories} />
           ) : (
             <ProductsAddPage />
           )}
